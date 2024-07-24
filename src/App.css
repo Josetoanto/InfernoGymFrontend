@@ -1,0 +1,1038 @@
+:root {
+  --color-primario: #C1221E;
+  --color-secundario: #19181f;
+  --color-Secundario2: #f8f7f2;
+  --color-secundario3: #850A08;
+  --color-secundario4: #ebebea;
+  --fuente-primaria: "Lacquer", system-ui;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+#headerTitulo {
+  margin-left: 25px;
+  font-size: 14px;
+  color: var(--color-primario);
+  align-items: center;
+  font-family: "Lacquer", system-ui;
+  display: flex;
+  justify-content:space-between;
+  
+}
+
+#header {
+  background-color: var(--color-secundario);
+  display: flex;
+  justify-content:space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+#logoHeader {
+  width: 80px;
+  height: 62px;
+  margin-right: 15px;
+}
+
+#header_registrarse-btn {
+  background-color: transparent;
+  color: var(--color-primario);
+  border: 0px;
+  height: 10px;
+  width: 10px;
+  font-size: 20px;
+  margin-right: 150px;
+  font-weight: bold;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+#header_registrarse-btn:hover {
+  transform: scale(1.1);
+}
+
+#header_iniciarSesion-btn {
+  background-color: var(--color-primario);
+  color: white;
+  border: 0px;
+  font-size: 20px;
+  margin-right: 50px;
+  height: 35px;
+  width: 150px;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+#header_iniciarSesion-btn:hover{
+  transform: scale(1.15);
+}
+
+#inicioPagina{
+  display: flex;
+  justify-content: space-between;
+background-color: var(--color-Secundario2);
+}
+
+#textoPiePagina, #imagenPiePagina {
+width: 50%; 
+}
+
+#textoPiePagina{
+padding-top: 70px;
+font-size: 25px;
+font-weight: lighter;
+padding: 70px;
+}
+
+#mundoAzul {
+padding:70px;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: auto;
+}
+
+#inscribirse-btn-inicioPagina{
+  background-color: var(--color-primario);
+  font-size: 15px;
+  padding: 5px;
+  width: 150px;
+  height: 50px;
+  color: white;
+  border-radius: 10px;
+  border: 1px;
+  box-shadow: 0 0 10px #444; /* Sombra exterior con propagación de 10 píxeles */
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+#inscribirse-btn-inicioPagina:hover{
+  transform: scale(1.1);
+}
+
+#auxLine_inicioPagina {
+  background-color: var(--color-Secundario2);
+  display: flex;
+align-items: center;
+justify-content: center;
+color: var(--color-primario);
+}
+
+#informacionServicios {
+  padding-top: 60px;
+  justify-content: center;
+  text-align: center;
+}
+#nuestrosServicios{
+  color: #ff9357;
+  font-size: 17px;
+}
+#navegaVelocidad{
+  color: #23214b;
+  font-size: 15px;
+  width: 650px;
+  margin-top: 2%;
+  margin-left: 29%;
+}
+
+#planesServicios{
+  width: 800px;
+  height: 500px;
+  margin-top: 30px;
+}
+
+#divMitad {
+  text-align: center;
+  background-color: #f4f4f4;
+  height: 20px;
+  padding: 25px;
+  color: var(--color-primario);
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+#gymImage{
+  width: 100%;
+  height: 500px;
+}
+
+#patrocinadores {
+  color: black;
+  height: 250px;
+  padding-top: 100px;
+  font-size: 18px;
+  padding-bottom: 70px;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+#suplementos-img {
+  margin-top: 30px;
+  
+}
+
+
+#piePagina {
+  background-color: #19181f;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  display: inline;
+  margin: 5px;
+  color: var(--color-primario);
+  font-family: "Lacquer", system-ui;
+}
+
+#maps {
+  height: 160px;
+  padding-left: 60px;
+  padding-top: 30px;
+  width: 300px;
+  padding-right: 100px;
+}
+#oficinas {
+  width: 300px;
+  color: white;
+  font-size: 10px;
+  text-align: left;
+  padding-top: 30px;
+}
+#soluciones,#company {
+  width: 300px;
+  color: white;
+  font-size: 10px;
+  text-align: left;
+  padding-top: 30px;
+}
+
+
+#redesSociales {
+  padding-right: 100px;
+  padding-top: 5px;
+  width: 200px;
+  height: 200px;
+}
+
+h4 {
+  color: #575757;
+  width: 200px;
+}
+
+h3 {
+  padding: 5px;
+}
+
+#lineaPiePagina {
+  padding-right: 100px;
+  padding-bottom: 40px;
+  background-color: #19181f;
+  text-align: right;
+  color: white;
+}
+#marcaRegistrada {
+  font-size: 10px;
+  text-align: center;
+  color: white;
+  background-color: #19181f;
+  height: 40px;
+}
+
+#registroColumnas {
+  box-shadow: 4px 6px 12px 14px rgba(0, 0, 0, 0.1); 
+  width: 800px;
+  height: 500px;
+  display: flex;
+  justify-content:space-between;
+  text-align: center;
+  margin-left: 24%;
+  margin-top: 5%; 
+  padding: 15px;
+}
+
+
+#columnaRegistro1 {
+  margin-top: 4%;
+  padding-top: 65px;
+  justify-content: center;
+  margin-left: 20%;
+ padding: 5px;
+}
+
+#box {
+  padding-left: 30%;
+  padding-top: 20%;
+  flex: auto;
+  justify-content: center;
+}
+
+
+#tituloRegistroBox{
+  display: flex;
+  justify-content: space-between;
+}
+#registrotitulo {
+  color: black;
+}
+
+#cuernosRegistro {
+  width: 60px;
+  height: 50px;
+  transition: transform ease-out 0.3s;
+  transform: scale(1.0);
+}
+
+
+
+#cuernosRegistro:hover {
+transform: scale(1.3);
+}
+
+
+#usuario,#correo, #passwordRegistro, #segundapassword {
+  height: 40px;
+  width: 450px;
+  border-radius: 5px;
+  border: 1px solid #877f7f;
+  margin: 2px;
+  text-indent: 5%;
+  transition: background-color ease-in .3s ;
+}
+
+#usuario:hover, #passwordRegistro:hover, #segundapassword:hover {
+  background-color: #dfdfdd;
+}
+
+#completarButon{
+    margin-top: 40px;
+    height: 40px;
+    width: 450px;
+    background-color: var(--color-primario);
+    color: white;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: transform ease-out 0.3s;
+    transform: scale(1.0);
+    box-shadow: 2px 4px 6px gray;
+}
+
+#completarButon:hover{
+  transform: scale(1.05);
+}
+
+
+#AmbasColumnas{
+  display: flex;
+  justify-content:space-between;
+}
+#ColumnaPrincipal{
+  padding-left: 300px;
+  padding-top: 100px;
+  width: 50%;
+
+}
+
+#mujer {
+  margin-top: 50px;
+  width: 60%;
+  border-radius: 25px;
+}
+
+#email, #password {
+  width: 420px;
+  height: 45px;
+  border-radius: 3px;
+  text-indent: 5%;
+  border: 1px solid #877f7f;
+  transition: background-color ease 0.3s ;
+}
+
+#email:hover,#password:hover {
+  background-color: #dfdfdd;
+}
+
+#tituloSesion {
+  font-size: 30px;
+}
+#inicioText, #passwordText  {
+  padding-top: 13px;
+  color: #9794aa;
+  font-size: 13px;
+}
+#entrarbtn{
+  background-color: var(--color-primario);
+  text-align: center;
+  border-color: transparent;
+  height: 47px;
+  color: white;
+  width: 420px;
+  font-size: 25px;
+  border-radius: 25px;
+  transition: transform ease 0.3s;
+  transform: scale(1.0);
+}
+
+#entrarbtn:hover {
+transform: scale(1.03);
+}
+#continue {
+  margin-left: 162px;
+  font-size: 13px;
+  color: #9794aa;
+}
+
+#googlebtn, #facebookbtn {
+  border: 1px solid #877f7f;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #19181f;
+  width: 420px;
+  height: 40px;
+  border-radius: 6px ;
+  background-color: transparent;
+  transition: background-color ease-in 0.3s;
+
+}
+
+#googlebtn:hover, #facebookbtn:hover {
+  background-color: #dfdfdd;
+}
+
+
+#registrarse {
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--color-primario);
+  background-color: transparent;
+  border-color:transparent;
+  transition: transform ease 0.3s;
+  transform: scale(1.0);
+}
+
+#registrarse:hover {
+  transform: scale(1.1);
+}
+
+#pregunta {
+  margin-left: 105px;
+  font-size: 13px;
+  color: #9794aa;
+}
+
+#googleIcon, #facebookIcon {
+  height: 15px;
+  width: 15px;
+  padding-left: 15px;
+  position: absolute;
+}
+/* NotFound.css */
+
+#notFound {
+  margin-top: 5%;
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+#errorImage {
+  max-width: 100%;
+  height: auto;
+  transition: background-color 0.3s; /* Agregamos una transición suave */
+  border-radius: 100px;
+}
+
+#errorImage:hover {
+  background-color: var(--color-primario); /* Cambia el color de fondo al pasar el mouse sobre la imagen */
+}
+
+#errorMessage {
+  font-size: 24px;
+  color: #333;
+  margin-top: 10px;
+  font-family: "Lacquer", system-ui;
+}
+
+#HeaderButton,#HeaderButtonMenu{
+  background-color: var(--color-secundario);
+  height: 50px;
+  width: 60px;
+  border: 0px solid black;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+#HeaderButton:hover, #HeaderButtonMenu:hover {
+  transform: scale(1.15);
+}
+
+#FlexBox {
+  margin: 100px;
+  
+}
+
+.calendarioTitulo {
+  text-align: right;
+  font-family: "Lacquer", system-ui;
+  font-size: 36px;
+  color: white;
+  margin: 5px;
+}
+
+#PrimerosDias {
+  display: flex;
+  justify-content: space-between;
+}
+
+#Largo {
+  width: 70%;
+  height: 300px;
+  background-color: var(--color-primario);
+  margin: 15px;
+}
+
+#Corto {
+  width: 350px;
+  height: 300px;
+  background-color: #850A08;
+  margin: 15px;
+}
+
+#UltimosDias {
+  display: flex;
+  justify-content: start;
+}
+
+
+#ProgressDiv {
+  height: 100px;
+  width: 550px;
+  background-color: var(--color-Secundario2);
+  font-size: 8px;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 25px;
+  font-weight: lighter;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra en la parte inferior */
+}
+
+#ContentArbol{
+  display: flex;
+  justify-content: space-between;
+  margin: 100px;
+  text-align: center;
+  
+}
+
+#Arbol {
+  height: 500px;
+  width: 50%;
+  background-color: var(--color-Secundario2);
+  border-radius: 25px;
+}
+
+#InformacionUser {
+  margin: 5px;
+  background-color: var(--color-primario);
+  padding: 15px;
+  height: 400px;
+  color: white;
+
+}
+
+#HeaderIS{
+  margin: 5px;
+  background-color: var(--color-secundario3);
+  padding: 10px;
+  height: 50px;
+  font-size: 40px;
+  font-family: "Lacquer", system-ui;
+  color: var(--color-Secundario2);
+}
+
+#modificarPerfilBtn{
+  margin: 25px;
+  height: 50px;
+  width: 150px;
+  background-color: var(--color-primario);
+  border-radius: 15px;
+  border: 5px solid var(--color-primario);
+  color: white;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra en la parte inferior */
+
+}
+
+#InformacionUsuarioBox {
+  margin: 100px;
+}
+
+#flecha {
+  height: 50px;
+  width: 50px;
+}
+
+#flechaBtn {
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: 0px solid black;
+  margin-top: 30px;
+  margin-right: 40px;
+  transform: scale(1.0);
+  transition: transform ease-out 0.3s;
+}
+
+#flechaBtn:hover {
+  transform: scale(1.1);
+}
+
+#modificarColumnas{
+  display: flex;
+  justify-content: space-between;
+}
+
+#contentEjercicios{
+  margin: 100px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#ejerciciosBox{
+  width: 550px;
+  height: 100px;
+  background-color: var(--color-Secundario2);
+  border-radius: 25px;
+  padding: 5px;
+  margin-top: 25px;
+  text-align: center;
+  font-size: 8px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra en la parte inferior */
+}
+
+#dietaBox{
+  width: 40%;
+  height: 640px;
+  background-color: var(--color-Secundario2);
+  border-radius: 25px;
+  padding: 5px;
+  margin-top: 25px;
+  text-align: center;
+  font-size: 8px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+}
+
+#ejerciciosBtns{
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#AgregarEjercicioBtn{
+  width: 31%;
+  height: 50px;
+  border-radius: 15px;
+  background-color: var(--color-primario);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1); 
+  border: 0px solid black;
+}
+
+#MoverseEjercicioBtn{
+  width: 31%;
+  height: 50px;
+  border-radius: 15px;
+  background-color: var(--color-Secundario2);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1); 
+  border: 0px solid black;
+}
+
+#bandejaBox{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 100px;
+}
+
+#chat{
+  width: 280px;
+  height: 60px;
+  background-color: var(--color-Secundario2);
+  font-size: 8px;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1); 
+
+}
+
+#Chatbox{
+  width: 60%;
+  height: 500px;
+  background-color: var(--color-secundario4);
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1); 
+}
+
+#NombreUsuarioChat{
+  background-color: var(--color-secundario4);
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1); 
+  height: 5px;
+  text-align: left;
+  padding: 25px;
+  font-size: 14px;
+}
+
+#Mensajes{
+  height: 75%;
+}
+
+#mensajeEnviar{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 15px;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  height: 40px;
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1); 
+}
+
+#mensajeEnviarText{
+  background-color: transparent;
+  width: 92%;
+  border: 0px solid var(--color-secundario4);
+  border-radius: 25px;
+  text-indent: 2%;
+} 
+
+#enviarMensajebtn{
+  background-color: transparent;
+  border: 0px solid black;
+  margin-right: 10px;
+}
+
+#arrowBtn{
+  width: 100%;
+  height: 50%;
+}
+
+#AgregarEjercicioPage{
+  display: flex;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+#AgregarEjercicioBox{
+  margin-top: 100px;
+  border-radius: 15px;
+  border: 2px solid black;
+  height: 570px;
+  width: 50%;
+}
+
+
+
+#inputsEjerciciosBox{
+  margin: 15px;
+}
+
+
+#agregarEjercicioTitulo{
+  text-align: left;
+  margin: 25px;
+  font-size: 18px;
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#nombreEjercicio,#pesoEjercicio,#seriesEjercicio{
+  margin: 15px;
+  width: 95%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-indent: 2%;
+}
+
+#repDaysEjercicio{
+  margin: 15px;
+  width: 96%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+informacionusuariobox
+#repeticionesEjercicios{
+  height: 45px;
+  width: 69%;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-indent: 2%;
+}
+
+#diaEjercicio{
+  height: 48px;
+  width: 29%;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-indent: 2%;
+}
+
+#agregarEjercicioBtnBox{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+#agregarEjercicioBtn{
+  width: 150px;
+  height: 50px;
+  background-color: var(--color-primario);
+  color: white;
+  border: 2px solid var(--color-primario);
+  border-radius: 25px;
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1); 
+  transform: scale(1.0);
+  transition: transform ease 0.3s;
+}
+#agregarEjercicioBtn:hover{
+  transform: scale(1.06);
+}
+button {
+  transform: scale(1.0);
+  transition: transform ease 0.3s;
+}
+button:hover {
+  transform: scale(1.06);
+  color: gold;
+}
+#pesaImg{
+  width: 100px;
+  height: 100px;
+}
+
+.mini-menu {
+  position: absolute;
+  top: 80px; /* Ajusta según la posición del botón */
+  right: 10px; /* Ajusta según la posición del botón */
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.mini-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mini-menu li {
+  background-color: black;
+  padding: 10px 20px;
+  color: white;
+}
+#LinkHeader {
+  font-family: "Lacquer", system-ui;
+  color: white;
+}
+#LinkHeader:hover {
+  background-color: var(--color-primario);
+}
+
+#UsuariosCoachBox{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 100px;
+}
+
+#BuscadorTitulo{
+  text-align: center;
+  padding: 15px;
+  color: white;
+  width: 350px;
+  font-size: 18px;
+  height: 20px;
+  background-color: var(--color-primario);
+}
+
+#BuscadorUsuarios{
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 15px;
+  width: 350px;
+  height: 20px;
+  font-size: 16px;
+  background-color: var(--color-secundario4);
+  border: 1px solid var(--color-secundario4);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+#BuscadorUsuarios:hover {
+  background-color: #dfdfdd;
+}
+
+#informacionUsuarioTitulo{
+  text-align: center;
+  padding: 15px;
+  color: white;
+  width: 550px;
+  font-size: 18px;
+  height: 20px;
+  background-color: var(--color-primario);
+}
+
+#informacionUsuarioBox{
+  margin-top: 10px;
+  background-color: var(--color-secundario3);
+  box-shadow: 0 14px 18px rgba(0, 0, 0, 0.1);
+}
+
+#SelectDayBtn{
+  text-indent: 10%;
+  float: right;
+  margin: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  width: 120px;
+  height: 35px;
+  color: black;
+  background-color: var(--color-secundario4);
+  border: 1px solid var(--color-secundario4);
+  transition: background-color 0.3s ease;
+}
+
+#SelectDayBtn:hover {
+  background-color: #dfdfdd;
+}
+
+
+#InformacionUsuario{
+  padding: 50px;
+  font-size: 18px;
+  color: white;
+}
+
+#RutinaUsuarioTitulo{
+  text-align: left;
+  color: white;
+  text-indent: 4%;
+  font-size: 16px;
+}
+
+.ejercicios {
+  margin: 8%
+}
+
+#Ejercicio1,#Ejercicio2,#Ejercicio3{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  height: 100px;
+  width: 90%;
+  border-radius: 5px;
+  margin-top:15px ;
+  background-color: var(--color-Secundario2);
+}
+
+.BotonesInformacionUsuario{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px;
+}
+
+.BotonesInformacionUsuario button {
+  height: 40px;
+  width: 30%;
+  border-radius: 15px;
+  background-color: var(--color-secundario4);
+  border: 1px solid var(--color-Secundario2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.0);
+  transition: transform 0.3s ease;
+}
+
+.BotonesInformacionUsuario button:hover {
+  transform: scale(1.1);
+}
+
+#ModificarBtn3,#ModificarBtn2,#ModificarBtn1{
+  margin-top: 6%;
+  margin-right: 4%;
+  float: right;
+  height: 40px;
+  width: 20%;
+  border-radius: 5px;
+  background-color: var(--color-secundario4);
+  border: 1px solid var(--color-Secundario2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.0);
+  transition: transform 0.3s ease;
+}
+
+#ModificarBtn3:hover,#ModificarBtn2:hover,#ModificarBtn1:hover{
+  transform: scale(1.1);
+}
+
+#Dieta1 {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  height: 380px;
+  width: 90%;
+  border-radius: 5px;
+  margin-top:15px ;
+  background-color: var(--color-Secundario2);
+}
+
+#informacionUsuarioBoxNutricionista{
+  margin-top: 10px;
+  background-color: var(--color-secundario3);
+  box-shadow: 0 14px 18px rgba(0, 0, 0, 0.1);
+  height: 700px;
+}
+
+#HomeBox{
+  margin: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  height: 450px;
+  padding: 5%;
+  border-radius: 75px;
+  box-shadow: 2px 4px 6px gray;
+}
+
+#cbumImg{
+  border-radius: 15px;
+}
+
+#EsloganHome{
+  width: 50%;
+  text-align: center;
+  color: var(--color-primario);
+  font-family: var(--fuente-primaria);
+  font-size: 32px;
+}
+
+#bodyHome{
+  height: 800px;
+}
+
+#name, #weight, #height, #goal {
+  height: 40px;
+  width: 450px;
+  border-radius: 5px;
+  border: 1px solid var(--color-secundario);
+  text-indent: 5px;
+}
