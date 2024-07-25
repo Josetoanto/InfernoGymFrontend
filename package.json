@@ -26,5 +26,6 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "vite": "^5.3.1"
-  }
+  },
+  "proxy": "https://p83c9dw9-8000.use2.devtunnels.ms"
 }

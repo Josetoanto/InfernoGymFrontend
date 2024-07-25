@@ -532,11 +532,23 @@ transform: scale(1.03);
   
 }
 
+MoverseEjercicioBtn
+
+#ArbolImagen {
+  height: 400px;
+  width: 400px;
+  display: block; /* Añadimos esto para que el margen automático funcione */
+  margin: auto;
+  margin-top: 50px; 
+}
+
+
 #Arbol {
   height: 500px;
   width: 50%;
   background-color: var(--color-Secundario2);
   border-radius: 25px;
+  margin: 0 auto; /* Centramos horizontalmente */
 }
 
 #InformacionUser {
@@ -607,7 +619,7 @@ transform: scale(1.03);
 
 #ejerciciosBox{
   width: 550px;
-  height: 100px;
+  height: max-content;
   background-color: var(--color-Secundario2);
   border-radius: 25px;
   padding: 5px;
@@ -643,6 +655,8 @@ transform: scale(1.03);
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1); 
   border: 0px solid black;
 }
+
+
 
 #MoverseEjercicioBtn{
   width: 31%;
@@ -1003,6 +1017,8 @@ button:hover {
   height: 700px;
 }
 
+
+
 #HomeBox{
   margin: 50px;
   display: flex;
@@ -1035,4 +1051,17 @@ button:hover {
   border-radius: 5px;
   border: 1px solid var(--color-secundario);
   text-indent: 5px;
+}
+
+#repeticionesEjercicios{
+  width: 69%;
+  border: 1px solid var(--color-secundario);
+  height: 45px;
+  border-radius: 5px;
+  text-indent: 3%;
+}
+
+.calendario p{
+  text-indent: 5%;
+  font-family: var(--fuente-primaria);
 }
