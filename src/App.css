@@ -532,7 +532,7 @@ transform: scale(1.03);
   
 }
 
-MoverseEjercicioBtn
+
 
 #ArbolImagen {
   height: 400px;
@@ -616,13 +616,23 @@ MoverseEjercicioBtn
   display: flex;
   justify-content: space-evenly;
 }
+#eliminarEjercicio{
+  height: 60px;
+  border-radius: 15px;
+  border: 0px solid var(--color-secundario);
+  background-color: var(--color-secundario4);
 
+  width: max-content;
+}
 #ejerciciosBox{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 550px;
   height: max-content;
   background-color: var(--color-Secundario2);
   border-radius: 25px;
-  padding: 5px;
+  padding: 15px;
   margin-top: 25px;
   text-align: center;
   font-size: 8px;
@@ -1065,3 +1075,321 @@ button:hover {
   text-indent: 5%;
   font-family: var(--fuente-primaria);
 }
+
+#graficasBox {
+  margin-top: 50px;
+  
+}
+
+#Fila1_GraficasBox,
+#Fila2_GraficasBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+#Fila2_GraficasBox {
+  justify-content: space-around;
+}
+
+#GraficaBox {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--color-primario);
+  padding: 20px;
+  flex: 1;
+  margin: 10px;
+}
+
+
+#GraficaBox {
+    margin: 10px;
+}
+
+#usuariosBox{
+  margin: 180px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#usuarios{
+  background-color: var(--color-primario);
+  height: 450px;
+  width: 700px;
+  box-shadow: 0px 1px 3px var(--color-secundario);
+}
+
+#tituloUsuarioBox{
+  color: var(--color-secundario4);
+  background-color: var(--color-secundario3);
+  display: flex;
+  justify-content: space-evenly;
+  font-family: var(--fuente-primaria);
+  margin-top: 20px;
+  box-shadow: 0px 2px 4px var(--color-secundario);
+}
+
+#banearUsuarioBtn,#banearTrabajadorBtn,#modificarTrabajadorBtn,#agregarTrabajadorBtn{
+  margin-top: 5%;
+  height: 50px;
+  width: 400px;
+  background-color: var(--color-primario);
+  border: 0px solid black;
+  border-radius: 25px;
+  font-size: large;
+  color: white; 
+  margin-left: 5%;
+  box-shadow: 0px 1px 1px var(--color-secundario);
+
+}
+
+#btnsUsuarios,#informacionUsuariosBox{
+  width: 60%;
+}
+
+#buscarTrabajadorInput,#buscarUsuarioInput{
+  margin-left: 5%;
+  width: 400px;
+  height: 50px;
+  margin-top: 5%;
+  text-indent: 5%;
+  border-radius: 15px;
+  transition: background ease 0.3s;
+  box-shadow: 0px 1px 1px var(--color-secundario);
+}
+
+#buscarTrabajadorInput:hover,#buscarUsuarioInput:hover{
+  background-color: #dfdfdd;
+}
+
+#administradorHomeHeader{
+  color: var(--color-secundario3);
+  font-size: 40px;
+  text-align: center;
+  padding-top: 25px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#InformacionNegocio{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#usuariosBox1,#gananciasBox{
+  margin: 0px;
+  margin-top:150px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+#usariosIMG,#gananciasIMG{
+  margin-right: 15px;
+  width: 100px;
+  height: 100px;
+}
+
+#InformacionNegocio{
+  margin-bottom: 100px;
+}
+
+#informacionUsuarios{
+  display: flex;
+  justify-content: space-evenly;
+}
+.usuarioItem {
+  color: white;
+  margin-top: 1px;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 60px;
+}
+
+.usuarioItem:hover{
+  background-color: rgba(255, 255, 255, 0.5); /* Blanco transparente */
+  border-radius: 15px;
+}
+
+.usuarioItem.selected {
+  background-color: rgba(255, 255, 255, 0.5); /* Blanco transparente */
+  border-radius: 15px;
+}
+
+#informacionUsuarios {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.scrollButton {
+  position: absolute;
+  right: 0;
+  width: 20px;
+  height: 50px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.scrollButton.up {
+  top: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.scrollButton.down {
+  bottom: 0;
+  border-top: 1px solid #ddd;
+}
+
+#informacionTrabajadores{
+  display: flex;
+  justify-content: space-evenly;
+}
+.trabajadorItem {
+  margin-right: 25px;
+  color: white;
+  margin-top:10px ;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.trabajadorItem:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Color de fondo blanco transparente */
+  border-radius: 15px;
+}
+
+.trabajadorItem.selected {
+  background-color: rgba(255, 255, 255, 0.5); /* Color de fondo blanco transparente */
+  border-radius: 15px;
+}
+
+/* Contenedor del formulario de edición */
+#editFormContainer {
+    position: fixed; /* Fija el contenedor en el centro de la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo difuminado para el resto de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+/* Estilo del formulario */
+#editForm {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Ajusta el tamaño del formulario si es necesario */
+    
+}
+
+/* Estilo para cada campo del formulario */
+#editForm input,
+#editForm select {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Estilo del botón de confirmar */
+#editForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#editForm button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo del botón de cerrar */
+#editForm button.closeBtn {
+    background-color: var(--color-primario);
+}
+
+#editForm button.closeBtn:hover {
+    background-color: var(--color-primario);
+}
+
+/* CSS para el formulario de agregar trabajador */
+
+#addFormContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Sombra de fondo para difuminar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+#addForm {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+}
+
+#addForm h3 {
+  margin-top: 0;
+}
+
+#addForm label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+#addForm input[type="text"],
+#addForm input[type="email"],
+#addForm input[type="password"],
+#addForm select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#addForm button[type="submit"],
+#addForm button[type="button"] {
+  background-color: #45a049;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#addForm button[type="button"] {
+  background-color: var(--color-primario); /* Color para el botón de cerrar */
+}
+
+#addForm button[type="submit"]:hover,
+#addForm button[type="button"]:hover {
+  background-color: var(--color-primario);
+}
+

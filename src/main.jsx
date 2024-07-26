@@ -18,7 +18,9 @@ import CoachHome from './component/page/CoachHome.jsx'
 import BandejaCoach from './component/page/BandejaCoach.jsx'
 import NutricionistaHome from './component/page/NutricionistaHome.jsx'
 import HomePersonal from './component/page/HomePersonal.jsx'
-
+import HomeAdministrador from './component/page/HomeAdministrador.jsx'
+import Usuarios from './component/page/Usuarios.jsx'
+import Trabajadores from './component/page/Trabajadores.jsx'
 
 const router = createBrowserRouter([
   {//Home
@@ -81,6 +83,16 @@ const router = createBrowserRouter([
  {
   path: "/homePersonal",
   element: <HomePersonal/>
+ },
+ {
+  path: "/homeAdministrador",
+  element: <HomeAdministrador/>
+ },{
+  path: "/Usuarios",
+  element: <Usuarios></Usuarios>
+ },{
+  path: "/personal",
+  element: <Trabajadores/>
  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

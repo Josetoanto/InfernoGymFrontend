@@ -42,7 +42,7 @@ const ColumnaPrincipal = () => {
                 console.log(userInfo)
                 switch (userInfo.role_id_fk) {
                     case 1:
-                        navigate("/administradorHome")
+                        navigate("/homeAdministrador")
                       break;
                     case 2:
                         navigate("/homeUsuario")

@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import HeaderUsers from "../template/HeaderUsers";
 import LocalStorage from "../../models/LocalStorage.mjs"; // Ajusta la ruta si es necesario
 
+const dayMapping = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
 const Ejercicios = () => {
     const navigate = useNavigate();
     const [exercises, setExercises] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const exercisesPerPage = 3;
+    const exercisesPerPage = 4;
     const userId = LocalStorage.getUserInfo()?.user_id;
     const token = LocalStorage.getItem("token");
 
@@ -45,15 +47,39 @@ const Ejercicios = () => {
     };
 
     const handleNextPage = () => {
-        if (currentPage < Math.ceil(exercises.length / exercisesPerPage)) {
+        const totalPages = Math.ceil(exercises.length / exercisesPerPage);
+        if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
         }
     };
 
-    // Obtener los ejercicios de la página actual
-    const indexOfLastExercise = currentPage * exercisesPerPage;
-    const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-    const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
+    const handleDeleteExercise = async (exerciseId) => {
+        try {
+            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/unassign-exercise', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    exerciseId: exerciseId,
+                    clientId: userId
+                })
+            });
+            
+            const responseText = await response.text();
+            if (response.ok) {
+                setExercises(exercises.filter(exercise => exercise.id !== exerciseId));
+                console.log('Ejercicio desasignado con éxito');
+            } else {
+                console.error('Error al desasignar el ejercicio:', responseText);
+            }
+        } catch (error) {
+            console.error('Error al conectar con la API:', error);
+        }
+    };
+
+    const currentExercises = exercises.slice((currentPage - 1) * exercisesPerPage, currentPage * exercisesPerPage);
 
     return (
         <>
@@ -64,10 +90,12 @@ const Ejercicios = () => {
                         currentExercises.map((exercise, index) => (
                             <div key={index} id="ejerciciosBox">
                                 <h1>{exercise.exercise_name}</h1>
-                                <h3>Peso: {exercise.weightexercise}</h3>
-                                <h3>Series: {exercise.series}</h3>
-                                <h3>Repeticiones: {exercise.repetitions}</h3>
-                                <h3>Día: {exercise.day}</h3>
+                                <div><h3>Peso: {exercise.weightexercise} Kg</h3>
+                                <h3>Series: {exercise.series}</h3></div>
+                                <div><h3>Repeticiones: {exercise.repetitions}</h3>
+                                <h3>Día: {dayMapping[exercise.day_of_week - 1]}</h3></div>
+                                
+                                <button id="eliminarEjercicio" onClick={() => handleDeleteExercise(exercise.id)}>Borrar</button>
                             </div>
                         ))
                     ) : (
@@ -78,7 +106,7 @@ const Ejercicios = () => {
                     <div id="ejerciciosBtns">
                         <button id="AgregarEjercicioBtn" onClick={handleAddExercise}>Agregar</button>
                         <button id="MoverseEjercicioBtn" onClick={handlePreviousPage} disabled={currentPage === 1}>Anterior</button>
-                        <button id="MoverseEjercicioBtn" onClick={handleNextPage} disabled={currentPage === Math.ceil(exercises.length / exercisesPerPage)}>Siguiente</button>
+                        <button id="MoverseEjercicioBtn" onClick={handleNextPage} disabled={currentExercises.length < exercisesPerPage}>Siguiente</button>
                     </div>
                 </div>
                 <div id="dietaBox"><h1>Dieta</h1></div>
