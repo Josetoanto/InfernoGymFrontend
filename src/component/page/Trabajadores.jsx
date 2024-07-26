@@ -10,7 +10,19 @@ const Trabajadores = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [showEditForm, setShowEditForm] = useState(false);
     const [showAddForm, setShowAddForm] = useState(false);
-    const [formData, setFormData] = useState({ name: '', gmail: '', role_id_fk: '', password: '' });
+    const [formData, setFormData] = useState({ 
+        name: '', 
+        password: '', 
+        weight: 0, 
+        height: 0, 
+        age: 0, 
+        progress: "0%", 
+        goal: "ninguno", 
+        gmail: '', 
+        subscription_id: 2, 
+        role_id_fk: 1, 
+        deleted: false 
+    });
     const token = LocalStorage.getItem("token");
 
     useEffect(() => {
@@ -52,9 +64,10 @@ const Trabajadores = () => {
         setSelectedWorkerId(workerId);
         const worker = trabajadores.find(w => w.user_id === workerId);
         setFormData({
+            ...formData,
             name: worker.name || '',
             gmail: worker.gmail || '',
-            role_id_fk: worker.role_id_fk || ''
+            role_id_fk: worker.role_id_fk || 1
         });
     };
 
@@ -70,10 +83,22 @@ const Trabajadores = () => {
 
     const handleAddClick = () => {
         setShowAddForm(true);
-        setFormData({ name: '', gmail: '', role_id_fk: '', password: '' });
+        setFormData({ 
+            name: '', 
+            password: '', 
+            weight: 0, 
+            height: 0, 
+            age: 0, 
+            progress: "0%", 
+            goal: "ninguno", 
+            gmail: '', 
+            subscription_id: 2, 
+            role_id_fk: 1, 
+            deleted: false 
+        });
     };
 
-    const handleEditFormChange = (event) => {
+    const handleFormChange = (event) => {
         const { name, value } = event.target;
         setFormData(prevFormData => ({
             ...prevFormData,
@@ -117,9 +142,16 @@ const Trabajadores = () => {
 
         const newWorker = {
             name: formData.name,
+            password: formData.password,
+            weight: formData.weight,
+            height: formData.height,
+            age: formData.age,
+            progress: formData.progress,
+            goal: formData.goal,
             gmail: formData.gmail,
+            subscription_id: formData.subscription_id,
             role_id_fk: formData.role_id_fk,
-            password: formData.password
+            deleted: formData.deleted
         };
 
         try {
@@ -253,7 +285,7 @@ const Trabajadores = () => {
                                 type="text"
                                 name="name"
                                 value={formData.name}
-                                onChange={handleEditFormChange}
+                                onChange={handleFormChange}
                                 required
                             />
                         </label>
@@ -263,7 +295,7 @@ const Trabajadores = () => {
                                 type="email"
                                 name="gmail"
                                 value={formData.gmail}
-                                onChange={handleEditFormChange}
+                                onChange={handleFormChange}
                                 required
                             />
                         </label>
@@ -272,7 +304,7 @@ const Trabajadores = () => {
                             <select
                                 name="role_id_fk"
                                 value={formData.role_id_fk}
-                                onChange={handleEditFormChange}
+                                onChange={handleFormChange}
                                 required
                             >
                                 <option value="">Seleccione un rol</option>
@@ -297,7 +329,7 @@ const Trabajadores = () => {
                                 type="text"
                                 name="name"
                                 value={formData.name}
-                                onChange={handleEditFormChange}
+                                onChange={handleFormChange}
                                 required
                             />
                         </label>
@@ -307,7 +339,7 @@ const Trabajadores = () => {
                                 type="email"
                                 name="gmail"
                                 value={formData.gmail}
-                                onChange={handleEditFormChange}
+                                onChange={handleFormChange}
                                 required
                             />
                         </label>
@@ -316,7 +348,7 @@ const Trabajadores = () => {
                             <select
                                 name="role_id_fk"
                                 value={formData.role_id_fk}
-                                onChange={handleEditFormChange}
+                                onChange={handleFormChange}
                                 required
                             >
                                 <option value="">Seleccione un rol</option>
@@ -330,7 +362,7 @@ const Trabajadores = () => {
                                 type="password"
                                 name="password"
                                 value={formData.password}
-                                onChange={handleEditFormChange}
+                                onChange={handleFormChange}
                                 required
                             />
                         </label>

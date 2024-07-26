@@ -21,6 +21,7 @@ import HomePersonal from './component/page/HomePersonal.jsx'
 import HomeAdministrador from './component/page/HomeAdministrador.jsx'
 import Usuarios from './component/page/Usuarios.jsx'
 import Trabajadores from './component/page/Trabajadores.jsx'
+import BandejaNutricionista from './component/page/BandejaNutricionista.jsx'
 
 const router = createBrowserRouter([
   {//Home
@@ -93,6 +94,9 @@ const router = createBrowserRouter([
  },{
   path: "/personal",
   element: <Trabajadores/>
+ },{
+  path: "/bandejaNutricionista",
+  element: <BandejaNutricionista/>
  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
