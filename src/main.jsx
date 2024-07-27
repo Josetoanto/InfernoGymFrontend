@@ -22,6 +22,7 @@ import HomeAdministrador from './component/page/HomeAdministrador.jsx'
 import Usuarios from './component/page/Usuarios.jsx'
 import Trabajadores from './component/page/Trabajadores.jsx'
 import BandejaNutricionista from './component/page/BandejaNutricionista.jsx'
+import Suscripciones from './component/page/Suscripcion.jsx'
 
 const router = createBrowserRouter([
   {//Home
@@ -97,6 +98,9 @@ const router = createBrowserRouter([
  },{
   path: "/bandejaNutricionista",
   element: <BandejaNutricionista/>
+ },{
+  path: "/suscripcion",
+  element: <Suscripciones/>
  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Flecha from "../atom/Flecha";
 import pesa from '../../assets/weight.png';
 import LocalStorage from "../../models/LocalStorage.mjs"; // Ajusta la ruta si es necesario
@@ -13,7 +14,7 @@ const AgregarEjercicio = () => {
     });
     const [loading, setLoading] = useState(false);
     const token = LocalStorage.getItem("token");
-
+    const navigete = useNavigate();
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         setExerciseInfo((prevState) => ({
@@ -51,6 +52,7 @@ const AgregarEjercicio = () => {
             const data = await response.status;
             if (data) {
                 console.log('Ejercicio creado exitosamente:', data);
+                navigete("/ejercicios")
             } else {
                 console.error('Error al crear el ejercicio:', data);
             }

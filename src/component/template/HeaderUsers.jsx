@@ -49,7 +49,7 @@ const HeaderUsers = ({ prompt }) => {
                                 <Link id="LinkHeader" to="/ArbolUsuario">Avance</Link>
                             </li>
                             <li>
-                                <Link id="LinkHeader" to="/BandejaUsuario">Suscripciones</Link>
+                                <Link id="LinkHeader" to="/suscripcion">Suscripciones</Link>
                             </li>
                             <li>
                                 <Link id="LinkHeader" to="/">Cerrar Sesion</Link>

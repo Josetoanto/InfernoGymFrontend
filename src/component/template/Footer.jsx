@@ -1,5 +1,5 @@
 import React from "react";
-import Mapa from "../organisms/Mapa";
+import Mapa from "../atom/Mapa";
 import Oficinas from "../organisms/Oficinas";
 import Soluciones from "../organisms/Soluciones";
 import Company from "../organisms/Company";

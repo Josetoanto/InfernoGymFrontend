@@ -9,7 +9,7 @@ const Ejercicios = () => {
     const navigate = useNavigate();
     const [exercises, setExercises] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const exercisesPerPage = 4;
+    const exercisesPerPage = 3; // Cambiado a 3
     const userId = LocalStorage.getUserInfo()?.user_id;
     const token = LocalStorage.getItem("token");
 
@@ -69,8 +69,27 @@ const Ejercicios = () => {
             
             const responseText = await response.text();
             if (response.ok) {
-                setExercises(exercises.filter(exercise => exercise.id !== exerciseId));
-                console.log('Ejercicio desasignado con éxito');
+                // Refrescar la lista de ejercicios después de eliminar uno
+                const fetchExercises = async () => {
+                    try {
+                        const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/user-exercises/${userId}`, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+                        const data = await response.json();
+                        if (response.ok) {
+                            setExercises(data);
+                        } else {
+                            console.error('Error al obtener los ejercicios:', data);
+                        }
+                    } catch (error) {
+                        console.error('Error al conectar con la API:', error);
+                    }
+                };
+        
+                fetchExercises();
             } else {
                 console.error('Error al desasignar el ejercicio:', responseText);
             }
@@ -83,7 +102,7 @@ const Ejercicios = () => {
 
     return (
         <>
-            <HeaderUsers prompt={"Nombre de usuario"} />
+            <HeaderUsers prompt={"Ejercicios"} />
             <div id="contentEjercicios">
                 <div id="ejerciciosForm">
                     {currentExercises.length > 0 ? (
@@ -94,22 +113,24 @@ const Ejercicios = () => {
                                 <h3>Series: {exercise.series}</h3></div>
                                 <div><h3>Repeticiones: {exercise.repetitions}</h3>
                                 <h3>Día: {dayMapping[exercise.day_of_week - 1]}</h3></div>
-                                
-                                <button id="eliminarEjercicio" onClick={() => handleDeleteExercise(exercise.id)}>Borrar</button>
+                                <button id="eliminarEjercicio" onClick={() => handleDeleteExercise(exercise.exercise_id)}>Borrar</button>
                             </div>
                         ))
                     ) : (
                         <div id="ejerciciosBox">
-                            <h1>Ejercicios vacío</h1>
+                            <h1>Ejercicios vacíos</h1>
                         </div>
                     )}
                     <div id="ejerciciosBtns">
                         <button id="AgregarEjercicioBtn" onClick={handleAddExercise}>Agregar</button>
                         <button id="MoverseEjercicioBtn" onClick={handlePreviousPage} disabled={currentPage === 1}>Anterior</button>
-                        <button id="MoverseEjercicioBtn" onClick={handleNextPage} disabled={currentExercises.length < exercisesPerPage}>Siguiente</button>
+                        <button id="MoverseEjercicioBtn" onClick={handleNextPage} disabled={currentPage * exercisesPerPage >= exercises.length}>Siguiente</button>
                     </div>
                 </div>
-                <div id="dietaBox"><h1>Dieta</h1></div>
+                <div id="dietaBox">
+                    <h1>Dieta</h1>
+                    <h3></h3>
+                </div>
             </div>
         </>
     );

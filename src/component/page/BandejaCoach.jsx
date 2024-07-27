@@ -5,7 +5,7 @@ import enviarBtn from '../../assets/rightArrow.png'
 const BandejaCoach = () => {
     return (
         <>
-        <HeaderCoach prompt={"Coach nombre Coach"}></HeaderCoach>
+        <HeaderCoach prompt={"Bandeja"}></HeaderCoach>
         <div id="bandejaBox">
         <div id = "chatsBox">
             <div id="chat"><h1>Coach</h1></div>
