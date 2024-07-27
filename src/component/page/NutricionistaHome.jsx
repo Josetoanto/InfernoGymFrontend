@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import HeaderCoach from "../template/HeaderCoach";
+import HeaderNutricionista from "../template/HeaderNutricionista";
 import LocalStorage from "../../models/LocalStorage.mjs";
 
 const NutricionistaHome = () => {
@@ -10,7 +10,7 @@ const NutricionistaHome = () => {
     const [dieta, setDieta] = useState(null);
     const [showDietaForm, setShowDietaForm] = useState(false);
     const [dietaFormData, setDietaFormData] = useState({ foods: '', progress: '' });
-    const [showResults, setShowResults] = useState(false); // Nuevo estado para manejar la visibilidad
+    const [showResults, setShowResults] = useState(false);
     const token = LocalStorage.getItem("token");
 
     const searchInputRef = useRef(null);
@@ -55,7 +55,8 @@ const NutricionistaHome = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                const filteredClientes = data.filter(cliente => cliente.role_id_fk === 2);
+                // Filtra los clientes para mostrar solo aquellos con subscription_type igual a 2
+                const filteredClientes = data.filter(cliente => cliente.subscription_id === 2);
                 setClientes(filteredClientes);
             } else {
                 console.error('Error al obtener los clientes:', await response.json());
@@ -78,7 +79,7 @@ const NutricionistaHome = () => {
                 const data = await response.json();
                 setDieta(data);
             } else {
-                setDieta(null); // Si no hay dieta, setear a null
+                setDieta(null);
                 console.error('Error al obtener la dieta:', await response.json());
             }
         } catch (error) {
@@ -88,15 +89,14 @@ const NutricionistaHome = () => {
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
-        setShowResults(true); // Mostrar resultados al buscar
+        setShowResults(true);
     };
 
     const handleClienteSelect = (cliente) => {
         setSelectedCliente(cliente);
-        console.log(`Selected Cliente ID: ${cliente.user_id}`);
         fetchDieta(cliente.user_id);
-        setSearchTerm(cliente.name); // Opcional: Para mostrar el nombre seleccionado en el input
-        setShowResults(false); // Ocultar resultados al seleccionar un cliente
+        setSearchTerm(cliente.name);
+        setShowResults(false);
     };
 
     const handleModificarDietaClick = () => {
@@ -131,25 +131,26 @@ const NutricionistaHome = () => {
 
         const method = dieta ? 'PUT' : 'POST';
 
-        
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(requestBody)
-            });
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
 
-                setShowDietaForm(false);
-                fetchDieta(selectedCliente.user_id); // Refresh dieta
-            
-        
+        if (response.ok) {
+            setShowDietaForm(false);
+            fetchDieta(selectedCliente.user_id);
+        } else {
+            console.error('Error al guardar la dieta:', await response.json());
+        }
     };
 
     return (
         <>
-            <HeaderCoach prompt={"Home"} />
+            <HeaderNutricionista prompt={"Home"} />
             <div id="UsuariosCoachBox">
                 <div>
                     <div id="BuscadorTitulo">BUSCADOR DE USUARIOS</div>
@@ -194,7 +195,7 @@ const NutricionistaHome = () => {
                                 <br />
                                 <strong>Objetivo:</strong> {selectedCliente.objective}
                                 <br />
-                                <strong>Progreso:</strong> {dieta ? dieta.progress : 'No disponible'} {/* Mostrar progreso */}
+                                <strong>Progreso:</strong> {dieta ? dieta.progress : 'No disponible'}
                                 <br />
                                 <strong>Peso:</strong> {selectedCliente.weight}
                                 <br />

@@ -103,11 +103,11 @@ const Usuarios = () => {
     // Función para mapear el ID de suscripción al nombre de la suscripción
     const getSubscriptionName = (subscriptionId) => {
         switch (subscriptionId) {
-            case 1:
-                return 'Básico';
-            case 2:
-                return 'Pro';
             case 3:
+                return 'Básico';
+            case 1:
+                return 'Pro';
+            case 2:
                 return 'Elite';
             default:
                 return 'No disponible';

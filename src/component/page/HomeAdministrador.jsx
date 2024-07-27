@@ -51,7 +51,7 @@ const GraficasClientes = () => {
         setTotalUsers(totalUsersCount);
 
         // Datos para el gráfico de ingresos
-        const subscriptionPrices = { 1: 250, 2: 400, 3: 500 };
+        const subscriptionPrices = { 1: 400, 2: 500, 3: 250 };
         const revenueBySubscription = Object.keys(clientsBySubscription).reduce((acc, subscriptionId) => {
           const numberOfClients = clientsBySubscription[subscriptionId];
           const price = subscriptionPrices[subscriptionId];
@@ -82,9 +82,9 @@ const GraficasClientes = () => {
       {
         name: 'Suscripciones',
         data: [
+          clientsBySubscription[3] || 0,
           clientsBySubscription[1] || 0,
-          clientsBySubscription[2] || 0,
-          clientsBySubscription[3] || 0
+          clientsBySubscription[2] || 0
         ]
       }
     ];
@@ -116,9 +116,9 @@ const GraficasClientes = () => {
       {
         name: 'Ganancias',
         data: [
+          revenueBySubscription[3] || 0,
           revenueBySubscription[1] || 0,
-          revenueBySubscription[2] || 0,
-          revenueBySubscription[3] || 0
+          revenueBySubscription[2] || 0
         ]
       }
     ];
