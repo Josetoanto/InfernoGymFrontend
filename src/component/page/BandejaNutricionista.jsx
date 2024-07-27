@@ -59,7 +59,7 @@ const BandejaNutricionista = () => {
 
     const fetchClientes = async () => {
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/clients', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/user/clients', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -82,7 +82,7 @@ const BandejaNutricionista = () => {
 
     const fetchMessages = async (recipientId) => {
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/mail', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/mail', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -109,7 +109,7 @@ const BandejaNutricionista = () => {
         if (messageToSend.trim() === "" || !selectedCliente) return;
 
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/mail', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/mail', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

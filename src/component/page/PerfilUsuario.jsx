@@ -12,7 +12,7 @@ const PerfilUsuario = () => {
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
-                const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/user/${userId}`, {
+                const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/${userId}`, {
                     headers: {
                         'Authorization': `Bearer ${token}` // Agregar el token al encabezado
                     }
@@ -46,7 +46,7 @@ const PerfilUsuario = () => {
 
     //Pagina de carga
     if (loading) {
-        return <div>Loading...</div>;
+        return <div><HeaderUsers prompt={"Cargando"}></HeaderUsers></div>;
     }
 
     if (!userInfo) {

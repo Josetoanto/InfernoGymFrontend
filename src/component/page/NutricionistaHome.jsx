@@ -46,7 +46,7 @@ const NutricionistaHome = () => {
 
     const fetchClientes = async () => {
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/clients', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/user/clients', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -68,7 +68,7 @@ const NutricionistaHome = () => {
 
     const fetchDieta = async (userId) => {
         try {
-            const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/diete/user/${userId}`, {
+            const response = await fetch(`https://infernogymapi.integrador.xyz/api/diete/user/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -126,8 +126,8 @@ const NutricionistaHome = () => {
         };
 
         const url = dieta
-            ? `https://p83c9dw9-8000.use2.devtunnels.ms/api/diete/${dieta.diete_id}`
-            : 'https://p83c9dw9-8000.use2.devtunnels.ms/api/diete';
+            ? `https://infernogymapi.integrador.xyz/api/diete/${dieta.diete_id}`
+            : 'https://infernogymapi.integrador.xyz/api/diete';
 
         const method = dieta ? 'PUT' : 'POST';
 
@@ -205,9 +205,9 @@ const NutricionistaHome = () => {
                             <h1 id="RutinaUsuarioTitulo">DIETA ACTUAL:</h1>
                             <div id="Dieta1">
                                 {dieta ? (
-                                    <p className="ejercicios">{dieta.foods}</p>
+                                    <p className="dietaText">{dieta.foods}</p>
                                 ) : (
-                                    <p className="ejercicios">No disponible</p>
+                                    <p className="dietaText">No disponible</p>
                                 )}
                             </div>
                             <div className="BotonesInformacionUsuario">

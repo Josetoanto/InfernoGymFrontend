@@ -14,7 +14,7 @@ const HeaderCoach = ({ prompt }) => {
 
 
     const goBack = () => {
-        navigate(-1);
+        navigate("/coachHome");
     };
 
 

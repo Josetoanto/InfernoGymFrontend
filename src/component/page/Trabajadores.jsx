@@ -39,7 +39,7 @@ const Trabajadores = () => {
 
     const fetchTrabajadores = async () => {
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/nutricionists-coaches', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/user/nutricionists-coaches', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -116,7 +116,7 @@ const Trabajadores = () => {
         };
 
         try {
-            const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/user/not/${selectedWorkerId}`, {
+            const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/not/${selectedWorkerId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -155,7 +155,7 @@ const Trabajadores = () => {
         };
 
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/user/', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -179,7 +179,7 @@ const Trabajadores = () => {
     const handleBanearClick = async () => {
         if (selectedWorkerId) {
             try {
-                const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/user/${selectedWorkerId}`, {
+                const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/${selectedWorkerId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`,

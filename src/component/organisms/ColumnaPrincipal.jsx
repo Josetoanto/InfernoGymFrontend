@@ -8,6 +8,7 @@ const ColumnaPrincipal = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const registrarse = () => {
         navigate("/registrarse");
@@ -19,48 +20,48 @@ const ColumnaPrincipal = () => {
             password: password
         };
 
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/login', {
+        try {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(user),
             });
-            const data = await response.json();
-            if (data.token != null) {
-                console.log('Login exitoso:', data.token);
-                // Maneja el éxito del login (por ejemplo, redirigir al usuario, guardar token)
-            } else {
-                const errorData = await response.json();
-                console.error('Error al iniciar sesión:', errorData.message);
-                // Maneja errores específicos de login
-            }
-            
-            if (data != null){
-                LocalStorage.setItem("token",data.token)
-                const userInfo = LocalStorage.getUserInfo()
-                console.log(userInfo)
-                switch (userInfo.role_id_fk) {
-                    case 1:
-                        navigate("/homeAdministrador")
-                      break;
-                    case 2:
-                        navigate("/homeUsuario")
-                      break;
-                    case 3:
-                        navigate("/nutricionistaHome")
-                      break;
-                    case 4:
-                        navigate("/coachHome")
-                      break;
-                    default:
-                      console.log("Rol no existente");
-                      break
-                  }
-            }
-            
-    };
 
+            if (response.ok) {
+                const data = await response.json();
+                if (data.token != null) {
+                    console.log('Login exitoso:', data.token);
+                    LocalStorage.setItem("token", data.token);
+                    const userInfo = LocalStorage.getUserInfo();
+                    console.log(userInfo);
+                    switch (userInfo.role_id_fk) {
+                        case 1:
+                            navigate("/homeAdministrador");
+                            break;
+                        case 2:
+                            navigate("/homeUsuario");
+                            break;
+                        case 3:
+                            navigate("/nutricionistaHome");
+                            break;
+                        case 4:
+                            navigate("/coachHome");
+                            break;
+                        default:
+                            console.log("Rol no existente");
+                            break;
+                    }
+                }
+            } else {
+                setErrorMessage("Algún dato ha sido ingresado de manera incorrecta");
+            }
+        } catch (error) {
+            setErrorMessage("Algún dato ha sido ingresado de manera incorrecta");
+            console.error('Error al conectar con la API:', error);
+        }
+    };
 
     return (
         <div id="ColumnaPrincipal">
@@ -81,6 +82,7 @@ const ColumnaPrincipal = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div> </div>
             <button id="entrarbtn" onClick={handleLogin}>Entrar</button>
             <h3 id="continue">Continuar con</h3>

@@ -34,7 +34,7 @@ const AgregarEjercicio = () => {
                 viernes: 5,
                 sábado: 6
             };
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/exercises', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/exercise/exercises', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

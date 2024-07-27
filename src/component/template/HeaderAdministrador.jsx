@@ -14,7 +14,7 @@ const HeaderAdmistrador = ({ prompt }) => {
 
 
     const goBack = () => {
-        navigate(-1);
+        navigate("/HomeAdministrador");
     };
 
 

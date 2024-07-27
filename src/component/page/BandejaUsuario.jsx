@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import HeaderUsers from "../template/HeaderUsers";
 import enviarBtn from '../../assets/rightArrow.png';
+import corona from '../../assets/crown.png';
 import LocalStorage from "../../models/LocalStorage.mjs";
 
 const BandejaUsuario = () => {
@@ -14,7 +15,7 @@ const BandejaUsuario = () => {
     const [messageToSend, setMessageToSend] = useState('');
     const token = LocalStorage.getItem("token");
     const currentUserId = LocalStorage.getUserInfo()?.user_id;
-    const userSubscriptionType = LocalStorage.getUserInfo()?.subscription_id;// Obtén el tipo de suscripción del usuario
+    const userSubscriptionType = LocalStorage.getUserInfo()?.subscription_id;
 
     const searchInputRef = useRef(null);
     const resultsRef = useRef(null);
@@ -50,17 +51,17 @@ const BandejaUsuario = () => {
     useEffect(() => {
         let intervalId;
         if (selectedCliente) {
-            fetchMessages(selectedCliente.user_id); // Initial fetch
+            fetchMessages(selectedCliente.user_id);
             intervalId = setInterval(() => {
                 fetchMessages(selectedCliente.user_id);
-            }, 3000); // Update messages every 3 seconds
+            }, 3000);
         }
-        return () => clearInterval(intervalId); // Cleanup interval on component unmount or when selectedCliente changes
+        return () => clearInterval(intervalId);
     }, [selectedCliente]);
 
     const fetchClientes = async () => {
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/user/', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -80,7 +81,7 @@ const BandejaUsuario = () => {
 
     const fetchMessages = async (recipientId) => {
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/mail', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/mail', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -107,7 +108,7 @@ const BandejaUsuario = () => {
         if (messageToSend.trim() === "" || !selectedCliente) return;
 
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/mail', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/mail', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -165,9 +166,9 @@ const BandejaUsuario = () => {
 
     return (
         <>
-            <HeaderUsers prompt={"Nombre usuario"} />
+            <HeaderUsers prompt={"Bandeja"} />
             <div id="bandejaBox">
-            <div id="chatsBox">
+                <div id="chatsBox">
                     <div>
                         <div id="BuscadorTitulo">BUSCADOR DE USUARIOS</div>
                         <div
@@ -203,7 +204,10 @@ const BandejaUsuario = () => {
                         </div>
                     </div>
                 </div>
-                <div id="Chatbox">
+                <div id="Chatbox" className={userSubscriptionType === 3 ? "blurred" : ""}>
+                    {userSubscriptionType === 3 && (
+                        <img id="coronaImage" src={corona} alt="Corona" />
+                    )}
                     <div id="NombreUsuarioChat">{selectedCliente ? selectedCliente.name : "Selecciona un usuario"}</div>
                     <div id="Mensajes">
                         {filteredMessages.map((message, index) => (
@@ -219,7 +223,7 @@ const BandejaUsuario = () => {
                         <input
                             id="mensajeEnviarText"
                             type="text"
-                            placeholder="Mensaje enviar"
+                            placeholder={userSubscriptionType === 3 ? "" : "Mensaje a enviar"}
                             value={messageToSend}
                             onChange={handleSendMessageChange}
                         />

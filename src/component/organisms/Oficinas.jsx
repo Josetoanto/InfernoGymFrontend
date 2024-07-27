@@ -5,9 +5,9 @@ const Oficinas = () => {
         <div id = "oficinas">
             <h2>Inferno Gym</h2>
             <h3>Localisacion</h3>
-                <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis maxime</h4>
+                <h4>Easter Egg</h4>
             <h3>Workshop</h3>
-                <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis maxime</h4>
+                <h4>Easter Egg</h4>
         </div>
     );
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderUsers from "../template/HeaderUsers";
 import LocalStorage from "../../models/LocalStorage.mjs"; // Ajusta la ruta si es necesario
+import corona from '../../assets/crown.png';
 
 const dayMapping = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 
@@ -9,14 +10,22 @@ const Ejercicios = () => {
     const navigate = useNavigate();
     const [exercises, setExercises] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [dieta, setDieta] = useState(null);
+    const [subscriptionType, setSubscriptionType] = useState(null);
     const exercisesPerPage = 3; // Cambiado a 3
     const userId = LocalStorage.getUserInfo()?.user_id;
     const token = LocalStorage.getItem("token");
 
     useEffect(() => {
+        const fetchUserInfo = async () => {
+            // Fetch user info to get subscription type
+            const userInfo = LocalStorage.getUserInfo();
+            setSubscriptionType(userInfo.subscription_id);
+        };
+
         const fetchExercises = async () => {
             try {
-                const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/user-exercises/${userId}`, {
+                const response = await fetch(`https://infernogymapi.integrador.xyz/api/exercise/user-exercises/${userId}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -33,8 +42,35 @@ const Ejercicios = () => {
             }
         };
 
+        fetchUserInfo();
         fetchExercises();
     }, [userId, token]);
+
+    useEffect(() => {
+        const fetchDieta = async () => {
+            if (subscriptionType === 2) {
+                try {
+                    const response = await fetch(`https://infernogymapi.integrador.xyz/api/diete/user/${userId}`, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        setDieta(data);
+                        console.log(data)
+                    } else {
+                        console.error('Error al obtener la dieta:', data);
+                    }
+                } catch (error) {
+                    console.error('Error al conectar con la API:', error);
+                }
+            }
+        };
+
+        fetchDieta();
+    }, [subscriptionType, userId, token]);
 
     const handleAddExercise = () => {
         navigate("/agregarEjercicio");
@@ -55,7 +91,7 @@ const Ejercicios = () => {
 
     const handleDeleteExercise = async (exerciseId) => {
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/unassign-exercise', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/exercise/unassign-exercise', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -72,7 +108,7 @@ const Ejercicios = () => {
                 // Refrescar la lista de ejercicios después de eliminar uno
                 const fetchExercises = async () => {
                     try {
-                        const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/user-exercises/${userId}`, {
+                        const response = await fetch(`https://infernogymapi.integrador.xyz/api/exercise/user-exercises/${userId}`, {
                             method: 'GET',
                             headers: {
                                 'Authorization': `Bearer ${token}`
@@ -127,9 +163,17 @@ const Ejercicios = () => {
                         <button id="MoverseEjercicioBtn" onClick={handleNextPage} disabled={currentPage * exercisesPerPage >= exercises.length}>Siguiente</button>
                     </div>
                 </div>
-                <div id="dietaBox">
+                <div id="dietaBox" className={subscriptionType !== 2 ? "lockedDieta" : ""}>
                     <h1>Dieta</h1>
-                    <h3></h3>
+                    {subscriptionType === 2 ? (
+                        <div>
+                            <h1 id="dietaText">{dieta?.foods || 'No se ha asignado una dieta'}</h1>
+                        </div>
+                    ) : (
+                        <div className="lockedContent">
+                            <img src={corona} alt="Corona" id="coronaImageDiete" />
+                        </div>
+                    )}
                 </div>
             </div>
         </>

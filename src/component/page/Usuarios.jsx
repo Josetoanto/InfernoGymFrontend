@@ -14,7 +14,7 @@ const Usuarios = () => {
     useEffect(() => {
         const fetchUsuarios = async () => {
             try {
-                const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/clients', {
+                const response = await fetch('https://infernogymapi.integrador.xyz/api/user/clients', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -51,7 +51,7 @@ const Usuarios = () => {
         console.log('ID del usuario seleccionado:', userId);
 
         try {
-            const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/user/name/${userName}`, {
+            const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/name/${userName}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -80,7 +80,7 @@ const Usuarios = () => {
         }
 
         try {
-            const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/user/${selectedUserId}`, {
+            const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/${selectedUserId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`

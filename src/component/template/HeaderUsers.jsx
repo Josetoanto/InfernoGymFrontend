@@ -14,7 +14,7 @@ const HeaderUsers = ({ prompt }) => {
 
 
     const goBack = () => {
-        navigate(-1);
+        navigate("/HomeUsuario");
     };
 
 

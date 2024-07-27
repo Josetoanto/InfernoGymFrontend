@@ -9,18 +9,18 @@ const ModificarPerfil = () => {
         goal: '',
         weight: '',
         height: '',
-        name: ''
+        name: '',
+        progress: '' 
     });
     const [loading, setLoading] = useState(true);
     const [loadingUpdate, setLoadingUpdate] = useState(false);
     const userId = LocalStorage.getUserInfo()?.user_id;
     const token = LocalStorage.getItem("token");
 
-    // Fetch user info when component mounts
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
-                const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/user/${userId}`, {
+                const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/${userId}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -33,7 +33,8 @@ const ModificarPerfil = () => {
                         goal: data.goal || '',
                         weight: data.weight || '',
                         height: data.height || '',
-                        name: data.name || ''
+                        name: data.name || '',
+                        progress: data.progress || '' // Obtener el progreso
                     });
                 } else {
                     console.error('Error al obtener la información del usuario:', await response.json());
@@ -53,7 +54,6 @@ const ModificarPerfil = () => {
         }
     }, [userId, token]);
 
-    // Handle input changes
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         setUserInfo((prevState) => ({
@@ -62,7 +62,6 @@ const ModificarPerfil = () => {
         }));
     };
 
-    // Handle profile update
     const handleUpdateProfile = async () => {
         setLoadingUpdate(true);
         try {
@@ -70,10 +69,11 @@ const ModificarPerfil = () => {
                 goal: userInfo.goal,
                 weight: parseInt(userInfo.weight),
                 height: parseFloat(userInfo.height),
-                name: userInfo.name
+                name: userInfo.name,
+                progress: userInfo.progress // Incluir el progreso en la actualización
             };
 
-            const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/user/not/${userId}`, {
+            const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/not/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -96,9 +96,8 @@ const ModificarPerfil = () => {
         }
     };
 
-    // Render loading state or form
     if (loading) {
-        return <div>Loading...</div>;
+        return <div></div>;
     }
 
     return (
@@ -137,6 +136,14 @@ const ModificarPerfil = () => {
                             id="height"
                             placeholder="Altura"
                             value={userInfo.height}
+                            onChange={handleInputChange}
+                        />
+                        <div> </div>
+                        <input
+                            type="text"
+                            id="progress"
+                            placeholder="Progreso"
+                            value={userInfo.progress}
                             onChange={handleInputChange}
                         />
                         <div></div>

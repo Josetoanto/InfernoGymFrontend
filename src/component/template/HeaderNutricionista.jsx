@@ -14,7 +14,7 @@ const HeaderNutricionista = ({ prompt }) => {
 
 
     const goBack = () => {
-        navigate(-1);
+        navigate("/nutricionistaHome");
     };
 
 

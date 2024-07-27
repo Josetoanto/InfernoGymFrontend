@@ -18,7 +18,7 @@ const ArbolUsuario = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/user/${userId}`, {
+                const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/${userId}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`
