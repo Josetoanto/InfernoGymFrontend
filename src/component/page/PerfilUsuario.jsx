@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import HeaderUsers from "../template/HeaderUsers";
 import LocalStorage from "../../models/LocalStorage.mjs"; // Ajusta la ruta si es necesario
-import flecha from '../../assets/arrow.png';
 
 const PerfilUsuario = () => {
     const [userInfo, setUserInfo] = useState(null);
@@ -82,7 +81,6 @@ const PerfilUsuario = () => {
                 const data = await response.json();
                 console.log('Perfil modificado exitosamente:', data);
                 handleCloseModal(); // Cerrar el modal después de actualizar
-                window.location.reload(); // Recargar la página para ver los cambios
             } else {
                 console.error('Error al modificar el perfil:', await response.json());
             }
