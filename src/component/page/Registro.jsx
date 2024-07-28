@@ -14,11 +14,12 @@ const Registro = () => {
         const user = {
             name: usuario,
             password: password,
-            email: correo,
-            weight: 0,
-            height: 0,
-            age: 0,
+            weight: '',
+            height: '',
+            age: '',
             progress: "0%",
+            goal: '',
+            gmail: correo,
             subscription_id: 3, 
             role_id_fk: 2,
             deleted: false

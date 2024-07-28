@@ -154,7 +154,7 @@ const Usuarios = () => {
                                     key={user.user_id}
                                     className={`usuarioItem ${selectedUserId === user.user_id ? 'selected' : ''}`}
                                 >
-                                    {user.email || 'No disponible'}
+                                    {user.gmail || 'No disponible'}
                                 </div>
                             ))}
                         </div>
