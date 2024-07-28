@@ -51,16 +51,15 @@ const CoachHome = () => {
 
     const fetchClientes = async () => {
         try {
-            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/clients', {
+            const response = await fetch('https://infernogymapi.integrador.xyz/api/user/clients', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
-
             if (response.ok) {
                 const data = await response.json();
-                const filteredClientes = data.filter(cliente => cliente.role_id_fk === 2);
+                const filteredClientes = data.filter(cliente => cliente.subscription_id === 1 || cliente.subscription_id === 2);
                 setClientes(filteredClientes);
             } else {
                 console.error('Error al obtener los clientes:', await response.json());

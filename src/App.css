@@ -1136,6 +1136,7 @@ button:hover {
   height: 450px;
   width: 700px;
   box-shadow: 0px 1px 3px var(--color-secundario);
+  overflow-y: auto;
 }
 
 #tituloUsuarioBox{
