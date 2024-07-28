@@ -51,7 +51,7 @@ const CoachHome = () => {
 
     const fetchClientes = async () => {
         try {
-            const response = await fetch('https://infernogymapi.integrador.xyz/api/user/clients', {
+            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/user/clients', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -60,7 +60,7 @@ const CoachHome = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                const filteredClientes = data.filter(cliente => cliente.subscription_id === 1 || cliente.subscription_id === 2);
+                const filteredClientes = data.filter(cliente => cliente.role_id_fk === 2);
                 setClientes(filteredClientes);
             } else {
                 console.error('Error al obtener los clientes:', await response.json());
@@ -84,7 +84,7 @@ const CoachHome = () => {
 
     const fetchExercises = async (clientId) => {
         try {
-            const response = await fetch(`https://infernogymapi.integrador.xyz/api/exercise/user-exercises/${clientId}`, {
+            const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/user-exercises/${clientId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -154,7 +154,7 @@ const CoachHome = () => {
         };
 
         try {
-            const response = await fetch(`https://infernogymapi.integrador.xyz/api/exercise/exercises/${currentExercise.exercise_id}`, {
+            const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/exercises/${currentExercise.exercise_id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -186,7 +186,7 @@ const CoachHome = () => {
             day_of_week: parseInt(event.target.day_of_week.value),
         };
         try {
-            const response = await fetch('https://infernogymapi.integrador.xyz/api/exercise/exercises', {
+            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/exercises', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -208,7 +208,7 @@ const CoachHome = () => {
 
     const getExerciseIdByName = async (exerciseName) => {
         try {
-            const response = await fetch(`https://infernogymapi.integrador.xyz/api/exercise/exercises-by-name?name=${exerciseName}`, {
+            const response = await fetch(`https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/exercises-by-name?name=${exerciseName}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -234,7 +234,7 @@ const CoachHome = () => {
     
     const assignExerciseToClient = async (exerciseId, clientId) => {
         try {
-            const response = await fetch('https://infernogymapi.integrador.xyz/api/exercise/assign-exercise', {
+            const response = await fetch('https://p83c9dw9-8000.use2.devtunnels.ms/api/exercise/assign-exercise', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

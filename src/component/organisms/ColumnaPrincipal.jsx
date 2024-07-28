@@ -86,9 +86,9 @@ const ColumnaPrincipal = () => {
             <div> </div>
             <button id="entrarbtn" onClick={handleLogin}>Entrar</button>
             <h3 id="continue">Continuar con</h3>
-            <button id="googlebtn">Iniciar sesión con Google <img id="googleIcon" src={google} alt="" /></button>
+            <button id="googlebtn">Iniciar sesión con Google (Proximamente) <img id="googleIcon" src={google} alt="" /></button>
             <div></div>
-            <button id="facebookbtn">Iniciar sesión con Facebook <img id="facebookIcon" src={facebook} alt="" /></button>
+            <button id="facebookbtn">Iniciar sesión con Facebook (Proximamente) <img id="facebookIcon" src={facebook} alt="" /></button>
             <h3 id="pregunta">¿No tienes cuenta? <button onClick={registrarse} id="registrarse">Regístrate</button></h3>
         </div>
     );
