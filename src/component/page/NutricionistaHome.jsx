@@ -97,6 +97,37 @@ const NutricionistaHome = () => {
         fetchDieta(cliente.user_id);
         setSearchTerm(cliente.name);
         setShowResults(false);
+        fetchUserInfo(cliente.user_id)
+    };
+
+    const fetchUserInfo = async (userId) => {
+        try {
+            const response = await fetch(`https://infernogymapi.integrador.xyz/api/user/${userId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+                setUserInfo(data);
+            } else {
+                console.error('Error al obtener la información del usuario:', await response.json());
+            }
+        } catch (error) {
+            console.error('Error al conectar con la API:', error);
+        }
+    };
+    
+    const setUserInfo = (data) => {
+        setSelectedCliente((prevCliente) => ({
+            ...prevCliente,
+            progress: data.progress,
+            weight: data.weight,
+            height: data.height
+        }));
     };
 
     const handleModificarDietaClick = () => {
@@ -193,7 +224,7 @@ const NutricionistaHome = () => {
                             <div id="InformacionUsuario">
                                 <strong>Nombre:</strong> {selectedCliente.name}
                                 <br />
-                                <strong>Objetivo:</strong> {selectedCliente.objective}
+                                <strong>Objetivo:</strong> {selectedCliente.goal}
                                 <br />
                                 <strong>Progreso:</strong> {dieta ? dieta.progress : 'No disponible'}
                                 <br />
